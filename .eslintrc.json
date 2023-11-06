@@ -1,0 +1,125 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    //"plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:react/jsx-runtime",
+    // https://github.com/prettier/eslint-config-prettier#installation
+    // ...add "prettier" to the "extends" array in your .eslintrc.* file.
+    // Make sure to put it last, so it gets the chance to override other configs.
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  // Specifying Parser
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.json"]
+  },
+  // Configuring third-party plugins
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  // Resolve imports
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    },
+    "react": {
+      "version": "18.x"
+    }
+  },
+  "rules": {
+    "quotes": "off",
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/no-unstable-nested-components": "off",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "linebreak-style": "off",
+    "function-paren-newline": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-curly-newline": "off",
+    // Configure prettier
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "arrowParens": "always"
+      }
+    ],
+    // Disallow the `any` type.
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false
+        }
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    // Enforce the use of the shorthand syntax.
+    "object-shorthand": "error",
+    "no-console": "warn",
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "object-curly-newline": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "no-param-reassign": "off",
+    // npx eslint-config-prettier src/App.tsx
+    // The following rules are unnecessary or might conflict with Prettier:
+    // - react/jsx-wrap-multilines
+    "react/jsx-wrap-multilines": [
+      2,
+      {
+        "logical": "ignore"
+      }
+    ]
+  }
+}
